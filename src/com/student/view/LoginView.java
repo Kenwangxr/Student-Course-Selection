@@ -118,10 +118,10 @@ public class LoginView extends JFrame {
                     JOptionPane.showMessageDialog(null, AppConstants.LOGIN_ERROR);
                 }
             } else {
-                String sno = StudentDAO.getInstance().queryForLogin(username, password + username);
+                String sno = StudentDAO.getInstance().queryForLogin(username, password );
                 if (sno != null) {
                     dispose();
-                    new StudentView(new Student(sno));
+                    new StudentView(new Student(Integer.parseInt(sno)));
                 } else {
                     userField.setBackground(Color.PINK);
                     passwordField.setBackground(Color.PINK);

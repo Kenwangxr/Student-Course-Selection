@@ -66,9 +66,9 @@ public class AdminDAO extends BaseDAO {
      * 
      * @Description: update a student's grade.
      */
-    public int updateCourseGrade(String sno, String cno, String grade) {
+    public int updateCourseGrade(String sno, int cno, String grade) {
         String sql = "update stu_course set grade=? where sno=? and cno=?";
-        String[] prarm = {grade, sno, cno};
+        Object[] prarm = {grade, sno, cno};
         return db.executeUpdate(sql, prarm);
     }
 
@@ -82,7 +82,7 @@ public class AdminDAO extends BaseDAO {
             // check if the course exist
             throw new CourseExistException();
         }
-        String sql = "insert into course values(?,?,?,?,?)";
+        String sql = "insert into course(cname,credit,cdept,tname) values(?,?,?,?)";
         db.executeUpdate(sql, prarm);
     }
 
@@ -113,16 +113,16 @@ public class AdminDAO extends BaseDAO {
      * @Description: AddStudent
      */
     public void AddStudent(String[] prarm) throws StudentExistException, UserExistException {
-        if (queryStudent(prarm[0]).length != 0) {
+        if (queryStudent(Integer.parseInt(prarm[0])).length != 0) {
             // check if the student exist
             throw new StudentExistException();
         }
-        if (queryUser(prarm[6]).length != 0) {
+        if (queryUser(prarm[5]).length != 0) {
             // check if the username exist
             throw new UserExistException();
         }
         String sql = "insert into student values(?,?,?,?,?,?,?)";
-        prarm[6] = getSHA256(prarm[6] + prarm[5]);
+        prarm[6] = getSHA256(prarm[6]);
         db.executeUpdate(sql, prarm);
 
     }
@@ -135,7 +135,7 @@ public class AdminDAO extends BaseDAO {
      */
     public void DelStudent(String sno)
             throws StudentNotFoundException, StudentSelectedCourseException {
-        if (queryStudent(sno).length == 0) {
+        if (queryStudent(Integer.parseInt(sno)).length == 0) {
             // check if the student exist
             throw new StudentNotFoundException();
         }

@@ -9,9 +9,9 @@ public class AppConstants {
 
     // JDBC
     public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String JDBC_URL = "jdbc:mysql://119.29.176.110:3306/school";
-    public static final String JDBC_USERNAME = "db1";
-    public static final String JDBC_PASSWORD = "shuacm";
+    public static final String JDBC_URL = "jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+    public static final String JDBC_USERNAME = "wangxr";
+    public static final String JDBC_PASSWORD = "mypassword";
 
     // Login
     public static final String LOGIN_TITLE = "用户登录";

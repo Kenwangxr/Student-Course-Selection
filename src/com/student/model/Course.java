@@ -7,21 +7,20 @@ package com.student.model;
  */
 public class Course {
 
-    private String cno;
+    private int cno;
     private String cname;
     private int credit;
     private String cdept;
     private String tname;
 
-    public Course(String cno) {
+    public Course(int cno){
         this.cno = cno;
     }
-
-    public String getCno() {
+    public int getCno() {
         return cno;
     }
 
-    public void setCno(String cno) {
+    public void setCno(int cno) {
         this.cno = cno;
     }
 
@@ -56,5 +55,4 @@ public class Course {
     public void setTname(String tname) {
         this.tname = tname;
     }
-
 }

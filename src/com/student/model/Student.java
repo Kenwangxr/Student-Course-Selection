@@ -7,7 +7,7 @@ package com.student.model;
  */
 public class Student {
 
-    private String sno;
+    private int sno;
     private String sname;
     private String sex;
     private int age;
@@ -16,15 +16,15 @@ public class Student {
     @Deprecated
     private String password;
 
-    public Student(String sno) {
+    public Student(int sno) {
         this.sno = sno;
     }
 
-    public String getSno() {
+    public int getSno() {
         return sno;
     }
 
-    public void setSno(String sno) {
+    public void setSno(int sno) {
         this.sno = sno;
     }
 

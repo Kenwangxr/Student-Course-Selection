@@ -158,7 +158,7 @@ public class StudentView extends JFrame {
         coursetable = new JTable();
         coursetable.setEnabled(false);
 
-        String[][] result = StudentDAO.getInstance().queryCourses(student.getSno());
+        String[][] result = StudentDAO.getInstance().queryCourses(String.valueOf(student.getSno()));
 
         initTable(coursetable, result, coursecolumn);
         JScrollPane scrollPane = new JScrollPane(coursetable);
@@ -187,7 +187,7 @@ public class StudentView extends JFrame {
 
         scoretable = new JTable();
         scoretable.setEnabled(false);
-        String[][] result = StudentDAO.getInstance().queryStuGrade(student.getSno());
+        String[][] result = StudentDAO.getInstance().queryStuGrade(String.valueOf(student.getSno()));
 
         initTable(scoretable, result, scorecolumn);
         JScrollPane scrollpane = new JScrollPane(scoretable);
@@ -208,7 +208,7 @@ public class StudentView extends JFrame {
 
         selectedtable = new JTable();
         selectedtable.setEnabled(false);
-        String[][] result = StudentDAO.getInstance().querySelectedCourse(student.getSno());
+        String[][] result = StudentDAO.getInstance().querySelectedCourse(String.valueOf(student.getSno()));
 
         initTable(selectedtable, result, coursecolumn);
         JScrollPane scrollpane = new JScrollPane(selectedtable);
@@ -231,14 +231,14 @@ public class StudentView extends JFrame {
                 return;
             }
             try {
-                StudentDAO.getInstance().queryCourseGrade(student.getSno(), cno);
+                StudentDAO.getInstance().queryCourseGrade(String.valueOf(student.getSno()), cno);
                 JOptionPane.showMessageDialog(null, AppConstants.CNO_SELECTED_ERROR,
                         AppConstants.ERROR, JOptionPane.ERROR_MESSAGE);
             } catch (CourseNotFoundException e1) {
                 JOptionPane.showMessageDialog(null, AppConstants.CNO_NOT_EXIST_ERROR,
                         AppConstants.ERROR, JOptionPane.ERROR_MESSAGE);
             } catch (CourseNotSelectedException e2) {
-                StudentDAO.getInstance().selectCourse(student.getSno(), cno);
+                StudentDAO.getInstance().selectCourse(String.valueOf(student.getSno()), cno);
                 textField.setText(null);
                 updateTables();
                 System.out.println("Student " + student.getSno() + " selected course " + cno + ".");
@@ -262,7 +262,7 @@ public class StudentView extends JFrame {
                 return;
             }
             try {
-                StudentDAO.getInstance().queryCourseGrade(student.getSno(), cno);
+                StudentDAO.getInstance().queryCourseGrade(String.valueOf(student.getSno()), cno);
                 JOptionPane.showMessageDialog(null, AppConstants.CNO_GRADED_ERROR,
                         AppConstants.ERROR, JOptionPane.ERROR_MESSAGE);
             } catch (CourseNotFoundException e2) {
@@ -272,7 +272,7 @@ public class StudentView extends JFrame {
                 JOptionPane.showMessageDialog(null, AppConstants.CNO_NOT_SELECTED_ERROR,
                         AppConstants.ERROR, JOptionPane.ERROR_MESSAGE);
             } catch (NumberFormatException e2) {
-                StudentDAO.getInstance().dropCourse(student.getSno(), cno);
+                StudentDAO.getInstance().dropCourse(String.valueOf(student.getSno()), cno);
                 textField.setText(null);
                 updateTables();
                 System.out.println("Student " + student.getSno() + " droped course " + cno + ".");
@@ -283,9 +283,9 @@ public class StudentView extends JFrame {
     }
 
     private void updateTables() {
-        initTable(coursetable, StudentDAO.getInstance().queryCourses(student.getSno()),
+        initTable(coursetable, StudentDAO.getInstance().queryCourses(String.valueOf(student.getSno())),
                 coursecolumn);
-        initTable(selectedtable, StudentDAO.getInstance().querySelectedCourse(student.getSno()),
+        initTable(selectedtable, StudentDAO.getInstance().querySelectedCourse(String.valueOf(student.getSno())),
                 coursecolumn);
     }
 }

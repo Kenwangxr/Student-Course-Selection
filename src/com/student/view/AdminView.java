@@ -159,7 +159,7 @@ public class AdminView extends JFrame {
         courses = new Vector<>();
 
         for (int i = 0; i < result.length; i++) {
-            Course c = new Course(result[i][0]);
+            Course c = new Course(Integer.parseInt(result[i][0]));
             c.setCname(result[i][1]);
             try {
                 c.setCredit(Integer.parseInt(result[i][2]));
@@ -235,7 +235,7 @@ public class AdminView extends JFrame {
                     coursename.setText(courses.get(index).getCname());
                     teachername.setText(courses.get(index).getTname());
                     String[][] result =
-                            AdminDAO.getInstance().queryStuWhoSeleCou(courses.get(index).getCno());
+                            AdminDAO.getInstance().queryStuWhoSeleCou(String.valueOf(courses.get(index).getCno()));
                     initGradeTable(gradetable, result, infocolumn);
                     inputbtn.setEnabled(true);
                 } catch (ArrayIndexOutOfBoundsException e2) {
@@ -322,7 +322,7 @@ public class AdminView extends JFrame {
         private void update() {
             int index = course.getSelectedIndex();
             int row = gradetable.getRowCount();
-            String cno = courses.get(index).getCno();
+            int cno = courses.get(index).getCno();
             for (int i = 0; i < row; i++) {
                 String sno = (String) gradetable.getValueAt(i, 0);
                 String grade = (String) gradetable.getValueAt(i, 1);

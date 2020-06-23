@@ -62,9 +62,9 @@ public abstract class BaseDAO {
      *
      * @Description: query a student by sno.
      */
-    public String[][] queryStudent(String sno) {
+    public String[][] queryStudent(int sno) {
         String sql = "select * from student where sno=?";
-        String[] param = {sno};
+        String[] param = {String.valueOf(sno)};
         rs = db.executeQuery(sql, param);
         return buildResult();
     }
