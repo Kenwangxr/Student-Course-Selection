@@ -122,7 +122,7 @@ public class AdminDAO extends BaseDAO {
             throw new UserExistException();
         }
         String sql = "insert into student values(?,?,?,?,?,?,?)";
-        prarm[6] = getSHA256(prarm[6] + prarm[5]);
+        prarm[6] = getSHA256(prarm[6]);
         db.executeUpdate(sql, prarm);
 
     }

@@ -110,7 +110,7 @@ public class StudentDAO extends BaseDAO {
      * @see #queryCourseGrade(String, String)
      */
     public void selectCourse(String sno, String cno) {
-        String sql = "insert into stu_course values (?,?,null)";
+        String sql = "insert into stu_course(sno,cno) values (?,?)";
         String[] param = {sno, cno};
         db.executeUpdate(sql, param);
     }
