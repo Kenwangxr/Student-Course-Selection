@@ -58,7 +58,7 @@ public class AdminView extends JFrame {
 
         setResizable(false);
         setTitle(AppConstants.ADMIN_TITLE);
-        setSize(450, 300);
+        setSize(750, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -113,6 +113,10 @@ public class AdminView extends JFrame {
         JMenu maintain = new JMenu(AppConstants.ADMIN_MAINTAIN);
         menuBar.add(maintain);
 
+        JMenuItem departInfo = new JMenuItem(AppConstants.ADMIN_DEPARTMENTINFO);
+        maintain.add(departInfo);
+        JMenuItem teacherInfo = new JMenuItem(AppConstants.ADMIN_TEACHERINFO);
+        maintain.add(teacherInfo);
         JMenuItem courseinfo = new JMenuItem(AppConstants.ADMIN_COURSEINFO);
         courseinfo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
         maintain.add(courseinfo);

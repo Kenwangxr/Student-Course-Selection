@@ -49,6 +49,8 @@ public class AppConstants {
     public static final String CDEPT = "开课院系";
     public static final String TNAME = "任课老师";
 
+    public static final String DNAME = "院系名";
+
     public static final String SCORE = "成绩";
 
     public static final String ERROR = "错误";
@@ -63,7 +65,7 @@ public class AppConstants {
     public static final String TOTAL_COUNT = "记录总数：";
 
     // Admin
-    public static final String ADMIN_TITLE = "成绩管理";
+    public static final String ADMIN_TITLE = "选课系统";
     public static final String ADMIN_QUERY = "查询";
     public static final String ADMIN_INPUT = "登分";
     public static final String ADMIN_SAVE = "保存";
@@ -75,6 +77,8 @@ public class AppConstants {
     public static final String ADMIN_TNAME = "任课教师：";
 
     public static final String ADMIN_MAINTAIN = "维护";
+    public static final String ADMIN_DEPARTMENTINFO = "院系信息";
+    public static final String ADMIN_TEACHERINFO = "教师信息";
     public static final String ADMIN_COURSEINFO = "课程信息";
     public static final String ADMIN_STUDENTINFO = "学生信息";
 
@@ -85,6 +89,12 @@ public class AppConstants {
     public static final String ADMIN_CNO_NOTEXIST_ERROR = "不能删除，此课程号不存在！";
     public static final String ADMIN_COURSESELECTED_ERROR = "不能删除，此课程已有学生选！";
 
+    public static final String ADMIN_DEPARTMENT_ADD = "新增院系";
+    public static final String ADMIN_DEPARTMENT_DEL = "删除院系";
+    public static final String ADMIN_DNO_EXIST_ERROR = "不能添加，此院系号已存在";
+    public static final String ADMIN_DNO_NOTEXIST_ERROR = "不能删除，此院系号不存在";
+
+
     public static final String ADMIN_SUTDENTINFO = "学生信息";
     public static final String ADMIN_SUTDENTINFO_ADD = "添加学生";
     public static final String ADMIN_SUTDENTINFO_DEL = "删除学生";
@@ -92,6 +102,7 @@ public class AppConstants {
     public static final String ADMIN_USER_EXIST_ERROR = "不能研究，此用戶已存在！";
     public static final String ADMIN_SNO_NOTEXIST_ERROR = "不能删除，此学号不存在！";
     public static final String ADMIN_SELECTEDCOURSE_ERROR = "不能刪除，此学生已选课！";
+
 
     public static final String REGEX_SNO = "^[a-zA-Z0-9]{1,4}$";
     public static final String REGEX_SNAME = "^(?!_)(?!.*?_$)[a-zA-Z0-9_\\u4e00-\\u9fa5]{1,8}$";

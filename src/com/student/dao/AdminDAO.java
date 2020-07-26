@@ -147,4 +147,10 @@ public class AdminDAO extends BaseDAO {
         String[] prarm = {sno};
         db.executeUpdate(sql, prarm);
     }
+
+    public void addDepartment(String dno, String name){
+        String sql = "insert into department values(?,?)";
+        String[] param = {dno, name};
+        db.executeUpdate(sql, param);
+    }
 }
